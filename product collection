@@ -1,0 +1,95 @@
+package com.company.demo;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Products {
+    int serialno;
+    String name;
+    int quantity;
+    double price;
+    static Scanner sc=new Scanner(System.in);
+   static List<Products> products=new ArrayList<>();
+   static Products product;
+
+    public Products(int serialno, String name, int quantity, double price) {
+        this.serialno = serialno;
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    public int getSerialno() {
+        return serialno;
+    }
+
+    public void setSerialno(int serialno) {
+        this.serialno = serialno;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Products{" +
+                "serialno=" + serialno +
+                ", name='" + name + '\'' +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                '}';
+    }
+    public static void main(String[] args)
+    {
+        int choice=0;
+        do{
+        System.out.println("Enter your choice\n1.Addproducts\n2.Searchproducts\n3.Editproducts\n4.Removeproducts\n5.exit");
+        choice=sc.nextInt();
+
+            switch (choice) {
+                case 1: {
+                    System.out.println("Add products");
+                    addProducts();
+                    break;
+                }
+                case 2: {
+                    System.out.println("Search whether product is their");
+                    searchProduct(products);
+                    break;
+                }
+                case 3:
+                {
+                    editProduct(products);
+                    break;
+                }
+                case 4:
+                {
+                    removeProduct(products);
+                    break;
+                }
+                case 5:System.out.println("Exiting.....");
+
+            }
+        }while(choice!=5);
